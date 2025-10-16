@@ -1,4 +1,5 @@
-// Your code here.
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.items');
   const items = document.querySelectorAll('.item');
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   container.addEventListener('mousemove', (e) => {
     e.preventDefault();
-    const afterElement = getDragAfterElement(container, e.clientX);
+    const afterElement = getDragAfterElement(container, e.clientX, e.clientY);
     if (afterElement == null) {
       container.appendChild(draggedItem);
     } else {
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
  
-  function getDragAfterElement(container, x) {
+  function getDragAfterElement(container, x, y) {
     const draggableElements = [...container.querySelectorAll('.item:not(.dragging)')];
     return draggableElements.reduce((closest, child) => {
       const box = child.getBoundingClientRect();
@@ -40,4 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { offset: Number.NEGATIVE_INFINITY }).element;
   }
 }); 
+    
+
+
+
+ 
     
