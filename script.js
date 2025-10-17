@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.items');  
 
   document.querySelectorAll('.item').forEach(cube => {
-    cube.style.position = 'absolute';  
     cube.addEventListener('mousedown', function(e) {
       e.preventDefault();
       selectedCube = this;
@@ -22,27 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!selectedCube) return;
     e.preventDefault();
 
-   
     let newX = e.clientX - offsetX;
     let newY = e.clientY - offsetY;
 
-  
     const containerRect = container.getBoundingClientRect();
     const cubeRect = selectedCube.getBoundingClientRect();
 
-   
     const minX = containerRect.left;
     const minY = containerRect.top;
     const maxX = containerRect.left + containerRect.width - cubeRect.width;
     const maxY = containerRect.top + containerRect.height - cubeRect.height;
 
-    
     if (newX < minX) newX = minX;
     if (newX > maxX) newX = maxX;
     if (newY < minY) newY = minY;
     if (newY > maxY) newY = maxY;
 
-    
     const relativeX = newX - containerRect.left;
     const relativeY = newY - containerRect.top;
 
@@ -50,16 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedCube.style.top = relativeY + 'px';
   });
 
-  document.addEventListener('mouseup', function(e) {
+  document.addEventListener('mouseup', function() {
     if (selectedCube) {
-     
       selectedCube.style.zIndex = '';
     }
     selectedCube = null;
   });
 });
-
-
 
  
     
