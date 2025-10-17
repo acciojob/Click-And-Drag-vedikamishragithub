@@ -2,18 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedCube = null;
   let offsetX = 0, offsetY = 0;
 
-  const container = document.querySelector('.container');  // the bounding parent
+  const container = document.querySelector('.container');  
 
   document.querySelectorAll('.cube').forEach(cube => {
-    cube.style.position = 'absolute';  // ensure absolute positioning
+    cube.style.position = 'absolute';  
     cube.addEventListener('mousedown', function(e) {
       e.preventDefault();
       selectedCube = this;
-      // compute where inside the element the user clicked
+     
       const rect = this.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
       offsetY = e.clientY - rect.top;
-      // Optionally bring to front / higher z-index
+      
       this.style.zIndex = 1000;
     });
   });
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerRect = container.getBoundingClientRect();
     const cubeRect = selectedCube.getBoundingClientRect();
 
-    // min and max positions *relative to container*
+   
     const minX = containerRect.left;
     const minY = containerRect.top;
     const maxX = containerRect.left + containerRect.width - cubeRect.width;
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('mouseup', function(e) {
     if (selectedCube) {
-      // reset z-index if you changed it
+     
       selectedCube.style.zIndex = '';
     }
     selectedCube = null;
