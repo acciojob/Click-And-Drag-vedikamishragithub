@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   container.addEventListener('mousemove', (e) => {
+	
     e.preventDefault();
+	if(!draggedItem) return;
     const afterElement = getDragAfterElement(container, e.clientX, e.clientY);
     if (afterElement == null) {
       container.appendChild(draggedItem);
