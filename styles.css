@@ -1,12 +1,12 @@
 .container {
-    position: relative; /* This allows absolute positioning of cubes */
+    position: relative;
     height:300px;
 	width:300px;
-    border: 1px solid #000; /* Optional: for visibility */
+    border: 1px solid #000; 
 }
 .cube {
     width: 50px;
     height: 50px;
-    background-color: blue; /* Cube color */
-    position: absolute; /* Allows for dragging */
+    background-color: blue;
+    position: absolute; 
 }
