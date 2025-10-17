@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedCube = null;
   let offsetX = 0, offsetY = 0;
 
-  const container = document.querySelector('.container');  
+  const container = document.querySelector('.items');  
 
-  document.querySelectorAll('.cube').forEach(cube => {
+  document.querySelectorAll('.item').forEach(cube => {
     cube.style.position = 'absolute';  
     cube.addEventListener('mousedown', function(e) {
       e.preventDefault();
